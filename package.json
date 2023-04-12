@@ -1,15 +1,15 @@
 {
-  "name": "window-app",
+  "name": "webpack-work-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "webpack react typescript 模版工程",
+  "main": "src/index.tsx",
   "scripts": {
     "start": "npm dev",
     "dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "lvyueyang <975794403@qq.com>",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
