@@ -1,16 +1,17 @@
 const { EnvironmentPlugin } = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
 const paths = require('./lib/paths');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
+  entry: path.join(__dirname, '../src/index.tsx'),
   output: {
     path: paths.appDist,
+    clean: true,
   },
   target: ['web'],
   resolve: {
@@ -71,17 +72,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(js|ts|jsx|tsx)$/,
-        include: [paths.appSrc, paths.appDemo, paths.resolveApp('../multipart_upload/src')],
-        use: [
-          {
-            loader: 'esbuild-loader',
-            options: {
-              loader: 'tsx',
-              target: 'es2015',
-            },
-          },
-        ],
+        test: /\.(ts|tsx|js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       // 资源文件
       {
@@ -102,17 +97,19 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      minify: true,
-    }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
     new EnvironmentPlugin(['NODE_ENV']),
     new ForkTsCheckerWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      minify: true,
+      inject: true,
+    }),
   ],
-  // externals: ['moment', 'react-dom', 'superagent', 'chart.js'],
+  optimization: {
+    runtimeChunk: 'single',
+  },
 };

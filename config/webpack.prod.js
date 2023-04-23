@@ -9,7 +9,6 @@ const DEPLOY_ADDRESS = process.env.DEPLOY_ADDRESS || '';
 const publicPath = `${DEPLOY_ADDRESS}${PUBLIC_PATH}`;
 
 module.exports = merge(common, {
-  entry: paths.appSrc,
   mode: 'production',
   output: {
     filename: '[contenthash].js',
