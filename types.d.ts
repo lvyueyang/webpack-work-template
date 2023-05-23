@@ -10,7 +10,9 @@ declare namespace NodeJS {
   }
 }
 
-interface Window {}
+declare module 'react/jsx-runtime' {
+  export default any;
+}
 
 declare module 'minio_console/*';
 

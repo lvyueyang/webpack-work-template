@@ -6,7 +6,7 @@ const common = require('./webpack.common');
 const { PUBLIC_PATH } = require('./lib/constants');
 const path = require('path');
 
-const PORT = 9000;
+const PORT = 8808;
 const publicPath = `http://localhost:${PORT}${PUBLIC_PATH}`;
 
 module.exports = merge(common, {
@@ -54,7 +54,7 @@ module.exports = merge(common, {
               title: '启动成功',
               titleAlignment: 'center',
               borderStyle: 'classic',
-            })
+            }),
           );
         }, 0);
       }

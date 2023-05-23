@@ -1,0 +1,56 @@
+.rootContainer {
+  /** 任务栏 */
+  --taskbar-size: 46px;
+  --taskbar-bg: rgba(50, 60, 70, 0.6);
+  --taskbar-item-active-bg: rgba(255, 255, 255, 0.3);
+
+  /** 桌面 */
+  --desktop-bg: #85aeca43;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center center;
+
+  .desktop {
+    order: 1;
+    flex: 1;
+    width: 100%;
+    height: calc(100% - var(--taskbar-size));
+    .appList {
+      width: 0;
+      height: 100%;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+    .appItem {
+      margin: 4px;
+      height: 84px;
+      width: 74px;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 3px;
+      user-select: none;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .logo {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

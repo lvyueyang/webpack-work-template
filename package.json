@@ -52,7 +52,15 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@icon-park/react": "^1.4.2",
+    "ahooks": "^3.7.7",
+    "antd": "^5.5.0",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-js-cron": "^3.2.0",
+    "react-json-view": "^1.21.3",
+    "react-window-launcher": "https://gitee.com/lvyueyang/launcher.git#v0.0.2",
+    "zustand": "^4.3.8"
   }
 }
