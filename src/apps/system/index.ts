@@ -1,10 +1,8 @@
 import LOGO from './logo.svg';
 import { createAppConfig } from '@/utils';
-import { AppContainer } from '@/components/AppContainer';
+import System from './System';
 
-export default function System() {
-  return <AppContainer>系统设置</AppContainer>;
-}
+export default System;
 
 export const CONFIG = createAppConfig({
   title: '系统设置',

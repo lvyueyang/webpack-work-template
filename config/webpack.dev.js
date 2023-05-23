@@ -26,18 +26,17 @@ module.exports = merge(common, {
     // open: true,
     host: '0.0.0.0',
     proxy: {
-      // '/api/': {
-      //   target: 'https://xxx.xx.xx/',
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     '^/saturn/api/': '/api/',
-      //   },
-      //   secure: false,
-      // },
+      '/admin-api': {
+        target: 'http://192.168.31.18:8085/',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }),
     // 进度条
     new ProgressBarPlugin({
       format: `:msg [:bar] ':percent' (:elapsed s)`,
